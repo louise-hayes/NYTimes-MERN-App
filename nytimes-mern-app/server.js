@@ -1,9 +1,9 @@
 // load environment properties from a .env file for local development
-require('dotenv').load({
-    silent: true
-  });
+// require('dotenv').load({
+//     silent: true
+//   });
   const express = require('express');
-  const api = require('./src/utils/routes/routes.js');
+  const api = require('./src/routes.js');
   const db = require("./models");
   const mongoose = require("mongoose");
   const bodyParser = require("body-parser");
@@ -15,9 +15,6 @@ require('dotenv').load({
   }));
   app.use(bodyParser.json());
   app.use('/', api);
-  
-  // Get token using your credentials
-  
   
   const port = process.env.PORT || process.env.VCAP_APP_PORT || 3000;
   
