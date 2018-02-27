@@ -42,7 +42,7 @@ class Articles extends Component {
   };
 
   delArticle = id => {
-    API.deleteBook(id)
+    API.deleteArticle(id)
       .then(res => this.loadArticles())
       .catch(err => console.log(err));
   };
@@ -169,7 +169,7 @@ class Articles extends Component {
                       <strong>
                         {article.articleHeader} : {article.pubdate}{article.summary}
                       </strong>
-                    <button onClick={() => this.delArticle(article)} 
+                    <button onClick={() => this.delArticle(article._id)} 
                   type = "button"
                   >
                   Delete

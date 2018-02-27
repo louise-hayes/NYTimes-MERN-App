@@ -69,7 +69,7 @@ console.log ("api.post(/articles)");
 //route for del of story
 api.delete("/articles/:id", function (req, res) {
   console.log("del it");
-  db.Story.findByIdAndRemove(req.params.id, function (err, removed) {
+  db.Article.findByIdAndRemove(req.params.id, function (err, removed) {
       res.json({
         removed: 'article Deleted!'
       });
