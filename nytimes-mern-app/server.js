@@ -8,14 +8,16 @@
   const mongoose = require("mongoose");
   const bodyParser = require("body-parser");
   const app = express();
+  const path=require('path'); 
   // Deployment tracking
   
   app.use(bodyParser.urlencoded({
     extended: false
   }));
   app.use(bodyParser.json());
+ 
+ app.use(express.static(path.join(__dirname, './build')));
   app.use('/', api);
-  
   const port = process.env.PORT || process.env.VCAP_APP_PORT || 3000;
   
   // Set mongoose to leverage built in JavaScript ES6 Promises

@@ -20,7 +20,11 @@ class Articles extends Component {
     nytimes:[],
     headline:"",
     abstract:"",
-    pub_date:""
+    pub_date:"",
+
+    articleHeader:"",
+    summary:"",
+    pubdate:""
 
   };
 
@@ -32,7 +36,7 @@ class Articles extends Component {
     console.log("loading saved articles");
     API.loadArticles()
       .then(res =>
-        this.setState({ articles: res, articleHeader: "", summary: "", pubdate: "" })
+        this.setState({ articles: res.data, articleHeader: "", summary: "", pubdate: "" })
       )
       .catch(err => console.log(err));
   };
@@ -50,12 +54,12 @@ class Articles extends Component {
     });
   };
 
-  saveArticle = article => {
+  saveArticle = nytime => {
     console.log("saving NY article");
       API.saveArticle({
-        articleHeader: this.state.headline.main,
-        summary: this.state.abstract,
-        pubdate: this.state.pub_date
+        articleHeader: nytime.headline.main,
+        summary: nytime.abstract,
+        pubdate: nytime.pub_date
       })
         .then(res => this.loadArticles())
         .catch(err => console.log(err));
@@ -163,7 +167,7 @@ class Articles extends Component {
                 {this.state.articles.map(article => (
                   <ListItem key={article._id}>
                       <strong>
-                        {article.articleHeader} by {article.pubdate}
+                        {article.articleHeader} : {article.pubdate}{article.summary}
                       </strong>
                     <button onClick={() => this.delArticle(article)} 
                   type = "button"
