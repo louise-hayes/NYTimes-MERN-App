@@ -16,7 +16,7 @@
     "react-scripts": "1.1.1"
   },
   "scripts": {
-    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "./node_modules/.bin/mocha --ui bdd --reporter spec test",
     "eject": "react-scripts eject",
