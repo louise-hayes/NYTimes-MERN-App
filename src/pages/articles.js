@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-// import DeleteBtn from "../components/DeleteBtn";
+import DeleteBtn from "../components/DeleteBtn";
+import SaveBtn from "../components/SaveBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/api";
 // import { Link } from "react-router-dom";
@@ -146,11 +147,7 @@ class Articles extends Component {
                       <strong>
                         {nytime.headline.main} by {nytime.pub_date}
                       </strong>
-                    <button onClick={() => this.saveArticle(nytime)} 
-                  type = "button"
-                  >
-                  Save
-                  </button>
+                    <SaveBtn onClick={() => this.saveArticle(nytime)}/>
                   </ListItem>
                 ))}
               </List>
@@ -169,11 +166,7 @@ class Articles extends Component {
                       <strong>
                         {article.articleHeader} : {article.pubdate}{article.summary}
                       </strong>
-                    <button onClick={() => this.delArticle(article._id)} 
-                  type = "button"
-                  >
-                  Delete
-                  </button>
+                  <DeleteBtn onClick={() => this.delArticle(article._id)} />
                   </ListItem>
                 ))}
               </List>
