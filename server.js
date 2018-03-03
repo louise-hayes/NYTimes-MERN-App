@@ -3,7 +3,7 @@
 //     silent: true
 //   });
   const express = require('express');
-  const api = require('./src/routes.js');
+  const api = require('./routes/routes.js');
   const db = require("./models");
   const mongoose = require("mongoose");
   const bodyParser = require("body-parser");
